@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {
+  EmptyContentHeadingStyled,
+  EmptyContentStyled,
+  EmptyContentTextStyled,
   MyTasksButtonStyled,
   MyTasksContainerTasksStyled,
   MyTasksFormStyled,
@@ -88,7 +91,19 @@ const MyTasks: React.FC = () => {
       </MyTasksFormStyled>
 
       <>
-        {renderTaskList()}
+        {renderTaskList().length > 0 ? (
+          renderTaskList()
+        ) : (
+          <EmptyContentStyled>
+            <EmptyContentHeadingStyled>
+              You don't have any task added
+            </EmptyContentHeadingStyled>
+
+            <EmptyContentTextStyled>
+              Add task and you get 10 points for every day
+            </EmptyContentTextStyled>
+          </EmptyContentStyled>
+        )}
 
         <MyTasksButtonStyled
           type="button"

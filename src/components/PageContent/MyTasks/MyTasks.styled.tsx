@@ -71,6 +71,30 @@ const MyTasksTypographyStyled = styled(Typography)`
   }
 `;
 
+const EmptyContentStyled = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  padding: 30px 10px;
+  box-shadow: 2px 2px 5px #bdbdbf;
+  border-radius: 10px;
+  opacity: 50%;
+`;
+
+const EmptyContentHeadingStyled = styled.h2`
+  font-size: 16px;
+  text-transform: uppercase;
+`;
+
+const EmptyContentTextStyled = styled.p`
+  font-size: 16px;
+  text-transform: uppercase;
+`;
+
 export {
   MyTasksStyled,
   MyTasksHeadingStyled,
@@ -79,4 +103,7 @@ export {
   MyTasksContainerTasksStyled,
   MyTasksFormStyled,
   MyTasksTypographyStyled,
+  EmptyContentHeadingStyled,
+  EmptyContentStyled,
+  EmptyContentTextStyled,
 };
