@@ -9,6 +9,7 @@ const TabsList = styled(TabList)`
   left: 0;
   background: ${({ theme }) => (theme as typeof defaultTheme).background};
   width: 100%;
+  z-index: 1000;
 
   @media screen and (min-width: 1024px) {
     position: sticky;
@@ -26,6 +27,7 @@ const TabsContentContainer = styled.div`
   background: ${({ theme }) => (theme as typeof defaultTheme).background};
   width: 100vw;
   min-height: calc(100vh - 96px);
+  overflow-x: hidden;
 
   @media screen and (min-width: 1024px) {
     min-height: calc(100vh - 48px);

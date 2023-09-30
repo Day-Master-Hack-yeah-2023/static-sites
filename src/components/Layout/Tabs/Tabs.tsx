@@ -10,9 +10,7 @@ import {
 } from './Tabs.styled';
 import { pageContent, tabsData } from './Tabs.data';
 
-type TabsProps = React.PropsWithChildren;
-
-const Tabs: React.FC<TabsProps> = ({ children }) => {
+const Tabs: React.FC = () => {
   const [value, setValue] = React.useState<string>('1');
 
   const handleChange = (

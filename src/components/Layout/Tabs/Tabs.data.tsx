@@ -2,6 +2,7 @@ import React from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import { MyTasks } from '../../PageContent/MyTasks';
 
 type Data = {
   icon: React.ReactNode;
@@ -18,7 +19,7 @@ const tabsData = (): Data[] => [
 
   {
     icon: <AssignmentIcon />,
-    name: 'My Task',
+    name: 'My Tasks',
     href: '/',
   },
 
@@ -31,7 +32,7 @@ const tabsData = (): Data[] => [
 
 const pageContent = (): React.ReactNode[] => [
   <p>test1</p>,
-  <p>test2</p>,
+  <MyTasks />,
   <p>test3</p>,
 ];
 
