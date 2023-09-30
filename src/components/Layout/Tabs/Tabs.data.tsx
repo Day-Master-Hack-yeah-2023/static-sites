@@ -9,7 +9,7 @@ type Data = {
   href: string;
 };
 
-const navigationData = (): Data[] => [
+const tabsData = (): Data[] => [
   {
     icon: <HomeIcon />,
     name: 'Dashboard',
@@ -29,4 +29,10 @@ const navigationData = (): Data[] => [
   },
 ];
 
-export { navigationData };
+const pageContent = (): React.ReactNode[] => [
+  <p>test1</p>,
+  <p>test2</p>,
+  <p>test3</p>,
+];
+
+export { tabsData, pageContent };
