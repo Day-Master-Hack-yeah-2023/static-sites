@@ -16,6 +16,15 @@ const GLobalStyle = createGlobalStyle`
 		font-family: 'Montserrat', sans-serif;
 		font-size: 16px;
 	}
+
+	body {
+		overflow-x: hidden;
+	}
+
+	body::-webkit-scrollbar {
+    display: none;
+}
+
 `;
 
 export default GLobalStyle;
