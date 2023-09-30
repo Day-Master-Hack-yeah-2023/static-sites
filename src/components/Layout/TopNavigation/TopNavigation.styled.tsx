@@ -1,5 +1,6 @@
 import { Button, IconButton } from '@mui/material';
 import styled from 'styled-components';
+import { defaultTheme } from '../../../provider/ThemeProvider';
 
 const TopNavigationStyled = styled.nav`
   display: flex;
@@ -11,6 +12,7 @@ const TopNavigationStyled = styled.nav`
 `;
 
 const TopNavigationHeading = styled.h1`
+  color: ${({ theme }) => (theme as typeof defaultTheme).item};
   font-size: 18px;
   font-weight: 600;
 `;
