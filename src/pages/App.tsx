@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyledEngineProvider } from '@mui/material';
-import GLobalStyle from './globalStyles';
+import GLobalStyle from '../styles/globalStyles';
+import { ThemeProvider } from '../provider/ThemeProvider';
 
 function App() {
   return (
     <StyledEngineProvider injectFirst>
-      <GLobalStyle />
+      <ThemeProvider>
+        <GLobalStyle />
+      </ThemeProvider>
     </StyledEngineProvider>
   );
 }
