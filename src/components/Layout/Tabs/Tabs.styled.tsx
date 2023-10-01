@@ -53,7 +53,7 @@ const TabsHeadingStyled = styled.h1`
   align-items: center;
   justify-content: center;
   height: 48px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   min-width: max-content;
   padding: 8px;

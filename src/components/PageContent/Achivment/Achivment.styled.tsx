@@ -19,8 +19,9 @@ const UserAchivmentImage = styled.img`
   width: 150px;
   height: auto;
   border-radius: 50%;
-  border: 4px solid #d19a24;
-  box-shadow: 2px 2px 5px #bdbdbf;
+  border: 4px solid ${({ theme }) => (theme as typeof defaultTheme).yellow};
+  box-shadow: 2px 2px 5px
+    ${({ theme }) => (theme as typeof defaultTheme).lightBorder};
 `;
 
 const UserAchivmentText = styled.p``;
