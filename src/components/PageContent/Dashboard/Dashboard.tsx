@@ -5,6 +5,9 @@ import {
   DashboardStyled,
   DashboardTypographyStyled,
   DashboardWrapperStyled,
+  DefaultDashboardHeading,
+  DefaultDashboardSection,
+  DefaultDashboardText,
 } from './Dashboard.styled';
 import { Checkbox } from '@mui/material';
 import { DAYSOFWEEK } from './Dashboard.data';
@@ -75,6 +78,18 @@ const Dashboard = () => {
             />
           </DashboardContainerStyled>
         ))}
+
+        {tasksList.length === 0 && (
+          <DefaultDashboardSection>
+            <DefaultDashboardHeading>
+              You dont have any task yet.
+            </DefaultDashboardHeading>
+
+            <DefaultDashboardText>
+              go to 'My Task' to add one
+            </DefaultDashboardText>
+          </DefaultDashboardSection>
+        )}
       </DashboardWrapperStyled>
     </DashboardStyled>
   );
