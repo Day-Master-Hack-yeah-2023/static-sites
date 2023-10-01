@@ -67,7 +67,7 @@ const MyTasksTypographyStyled = styled(Typography)`
   text-transform: uppercase;
 
   @media (min-width: 425px) {
-    /* max-width: 220px; */
+    max-width: 65%;
   }
 `;
 

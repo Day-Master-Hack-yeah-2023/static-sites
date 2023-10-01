@@ -22,7 +22,7 @@ const TabsItem = styled(Tab)`
 
 const TabsContentContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   background: ${({ theme }) => (theme as typeof defaultTheme).background};
   width: 100vw;
@@ -43,7 +43,7 @@ const TabsHeaderStyled = styled.article`
   flex-wrap: wrap;
   width: 100%;
   min-height: calc(100vh - 48px);
-  padding: 0 16px;
+  /* padding: 0 16px; */
 `;
 
 const TabsHeadingStyled = styled.h1`
