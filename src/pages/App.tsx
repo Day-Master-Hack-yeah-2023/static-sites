@@ -4,6 +4,7 @@ import GLobalStyle from '../styles/globalStyles';
 import { ThemeProvider } from '../provider/ThemeProvider';
 import { Layout } from '../components/Layout';
 import { Dashboard } from '../components/PageContent/Dashboard';
+import { DashboardProvider } from '../components/PageContent/Dashboard/Dashboard.context';
 
 function App() {
   return (
@@ -11,9 +12,11 @@ function App() {
       <ThemeProvider>
         <GLobalStyle />
 
-        <Layout>
-          <Dashboard />
-        </Layout>
+        <DashboardProvider>
+          <Layout>
+            <Dashboard />
+          </Layout>
+        </DashboardProvider>
       </ThemeProvider>
     </StyledEngineProvider>
   );
