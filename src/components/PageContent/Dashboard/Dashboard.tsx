@@ -49,44 +49,37 @@ const Dashboard = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  // const countPoints = () => {
-  //   // Pobierz aktualną datę
-  //   const date = new Date(
-  //     currentDate.getTime() + 86400000 + 86400000 + 86400000
-  //   );
+  const countPoints = () => {
+    const date = new Date(currentDate.getTime());
 
-  //   // Pobierz dzień tygodnia (0-niedziela, 1-poniedziałek, ..., 6-sobota)
-  //   const currentDayOfWeek = date.getDay();
+    const currentDayOfWeek = date.getDay();
 
-  //   // Sprawdź, czy istnieje wpis w local storage
-  //   const storedData = localStorage.getItem('checkDate');
-  //   const checkDate: number[] = storedData ? JSON.parse(storedData) : [];
+    const storedData = localStorage.getItem('checkDate');
+    const checkDate: number[] = storedData ? JSON.parse(storedData) : [];
 
-  //   // Sprawdź, czy któryś dzień w tablicy jest różny od aktualnego
-  //   const isDifferent = checkDate.some(
-  //     (day: number) => day !== currentDayOfWeek
-  //   );
+    const isDifferent = checkDate.some(
+      (day: number) => day !== currentDayOfWeek
+    );
 
-  //   if (isDifferent) {
-  //     console.log('Różnica w tablicy. Tablica przed resetem:', checkDate);
-  //     // Zapisz pustą tablicę w local storage
-  //     localStorage.setItem('checkDate', JSON.stringify([]));
-  //   } else {
-  //     // Dodaj aktualny dzień tygodnia
-  //     checkDate.push(currentDayOfWeek);
+    if (isDifferent) {
+      const storedPoints = localStorage.getItem('points');
 
-  //     // Zapisz tablicę w local storage
-  //     localStorage.setItem('checkDate', JSON.stringify(checkDate));
+      const points: number = storedPoints ? JSON.parse(storedPoints) : 0;
 
-  //     console.log('dzisiaj', date);
-  //     console.log('Moja testowa tablica:', checkDate);
-  //     console.log('Długość tablicy:', checkDate.length);
-  //   }
-  // };
+      localStorage.setItem('points', JSON.stringify(points + 10));
+      localStorage.setItem('checkDate', JSON.stringify([]));
+    } else {
+      checkDate.push(currentDayOfWeek);
+
+      localStorage.setItem('checkDate', JSON.stringify(checkDate));
+    }
+  };
 
   // React.useEffect(() => {
   //   const countPoints = () => {
-  //     const date = new Date(currentDate.getTime() + 86400000 + 86400000);
+  //     const date = new Date(
+  //       currentDate.getTime() + 86400000 + 86400000 + 86400000
+  //     );
   //     const currentDayOfWeek = date.getDay();
 
   //     const storedData = localStorage.getItem('checkDate');
@@ -98,7 +91,14 @@ const Dashboard = () => {
 
   //     if (isDifferent) {
   //       console.log('Różnica w tablicy. Tablica przed resetem:', checkDate);
-  //       localStorage.setItem('checkDate', JSON.stringify([]));
+  //       // Sprawdź, czy 'points' istnieje w localStorage
+  //       const storedPoints = localStorage.getItem('points');
+
+  //       // Jeśli 'points' nie istnieje lub jest null, ustaw wartość domyślną na 0
+  //       const points: number = storedPoints ? JSON.parse(storedPoints) : 0;
+
+  //       // Dodaj 10 do 'points'
+  //       localStorage.setItem('points', JSON.stringify(points + 10));
   //     } else {
   //       checkDate.push(currentDayOfWeek);
   //       localStorage.setItem('checkDate', JSON.stringify(checkDate));
@@ -117,6 +117,8 @@ const Dashboard = () => {
 
     setTasksList(updatedTasksList);
     localStorage.setItem('tasksList', JSON.stringify(updatedTasksList));
+
+    countPoints();
   };
 
   return (

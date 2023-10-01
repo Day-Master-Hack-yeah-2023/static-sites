@@ -11,7 +11,8 @@ import {
 import { allAchivment } from './Achivment.data';
 
 const Achivment: React.FC = () => {
-  const userPoints = 13;
+  const getPoints = localStorage.getItem('points') ?? 0;
+  const userPoints = getPoints as number;
 
   return (
     <>
