@@ -1,7 +1,10 @@
 import React from 'react';
 import { DashboardDataStyled, DashboardStyled } from './Dashboard.styled';
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
+  const tasksList = JSON.parse(localStorage.getItem('tasksList') ?? '[]');
+  // eslint-disable-next-line no-console
+  console.log(tasksList);
   const currentDate = new Date();
 
   const daysOfWeek = [

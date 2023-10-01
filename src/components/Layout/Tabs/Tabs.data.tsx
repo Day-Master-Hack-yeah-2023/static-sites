@@ -3,6 +3,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { MyTasks } from '../../PageContent/MyTasks';
+import { Dashboard } from '../../PageContent/Dashboard';
 
 type Data = {
   icon: React.ReactNode;
@@ -31,7 +32,7 @@ const tabsData = (): Data[] => [
 ];
 
 const pageContent = (): React.ReactNode[] => [
-  <p>test1</p>,
+  <Dashboard />,
   <MyTasks />,
   <p>test3</p>,
 ];
