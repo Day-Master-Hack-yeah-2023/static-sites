@@ -1,10 +1,16 @@
-import React from 'react';
-import { DashboardDataStyled, DashboardStyled } from './Dashboard.styled';
+import React, { useState } from 'react';
+import {
+  DashboardContainerStyled,
+  DashboardDataStyled,
+  DashboardStyled,
+  DashboardTypographyStyled,
+  DashboardWrapperStyled,
+} from './Dashboard.styled';
+import { Checkbox } from '@mui/material';
 
-const Dashboard: React.FC = () => {
-  const tasksList = JSON.parse(localStorage.getItem('tasksList') ?? '[]');
-  // eslint-disable-next-line no-console
-  console.log(tasksList);
+const Dashboard = () => {
+  // const tasksList = JSON.parse(localStorage.getItem('tasksList') ?? '[]');
+  const [isChecked, setIsChecked] = useState<boolean>(false);
   const currentDate = new Date();
 
   const daysOfWeek = [
@@ -27,11 +33,29 @@ const Dashboard: React.FC = () => {
     return `${day < 10 ? '0' : ''}${day}.${month < 10 ? '0' : ''}${month}`;
   };
 
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
     <DashboardStyled>
       <DashboardDataStyled>
         {getDayOfWeek(currentDate)} {getDateWithoutYear(currentDate)}
       </DashboardDataStyled>
+
+      <DashboardWrapperStyled>
+        <DashboardContainerStyled isChecked={isChecked}>
+          <DashboardTypographyStyled>Cos</DashboardTypographyStyled>
+
+          <Checkbox
+            color="success"
+            sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
+            checked={isChecked}
+            disabled={isChecked}
+            onChange={handleCheckboxChange}
+          />
+        </DashboardContainerStyled>
+      </DashboardWrapperStyled>
     </DashboardStyled>
   );
 };

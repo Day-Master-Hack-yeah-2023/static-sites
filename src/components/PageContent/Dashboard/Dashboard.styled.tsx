@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 import { defaultTheme } from '../../../provider/ThemeProvider';
+import {
+  MyTasksContainerTasksStyled,
+  MyTasksTypographyStyled,
+} from '../MyTasks/MyTasks.styled';
 
 const DashboardStyled = styled.section`
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   position: relative;
-  width: 100%;
+  gap: 20px;
+  width: 100vw;
 `;
 
 const DashboardDataStyled = styled.header`
@@ -18,4 +25,32 @@ const DashboardDataStyled = styled.header`
   font-size: 20px;
 `;
 
-export { DashboardStyled, DashboardDataStyled };
+const DashboardWrapperStyled = styled.div`
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  padding: 0 20px;
+  gap: 20px;
+`;
+
+const DashboardContainerStyled = styled(MyTasksContainerTasksStyled)<{
+  isChecked: boolean;
+}>`
+  background-color: ${({ isChecked }) => (isChecked ? '#BDBDBF' : '#ffffff')};
+  box-shadow: ${({ isChecked }) =>
+    isChecked ? 'none' : '2px 2px 5px #BDBDBF'};
+  opacity: ${({ isChecked }) => (isChecked ? '65%' : '100%')};
+`;
+
+const DashboardTypographyStyled = styled(MyTasksTypographyStyled)``;
+
+export {
+  DashboardStyled,
+  DashboardDataStyled,
+  DashboardWrapperStyled,
+  DashboardContainerStyled,
+  DashboardTypographyStyled,
+};
