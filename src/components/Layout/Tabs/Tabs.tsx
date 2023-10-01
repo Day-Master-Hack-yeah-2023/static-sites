@@ -9,6 +9,7 @@ import {
   TabsPanel,
 } from './Tabs.styled';
 import { pageContent, tabsData } from './Tabs.data';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const Tabs: React.FC = () => {
   const [value, setValue] = React.useState<string>('1');
@@ -23,7 +24,9 @@ const Tabs: React.FC = () => {
   return (
     <TabContext value={value}>
       <TabsHeaderStyled>
-        <TabsHeadingStyled>Day master</TabsHeadingStyled>
+        <TabsHeadingStyled>
+          Day <Brightness7Icon color="warning" /> master
+        </TabsHeadingStyled>
 
         <TabsList onChange={handleChange} aria-label="tabs">
           {tabsData().map((current, index) => (

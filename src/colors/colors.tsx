@@ -6,6 +6,7 @@ const colors = {
   primaryItem: '#D0237A',
   placeHolder: '#D7D7D7',
   lightBorder: '#BDBDBF',
+  yellow: '#d19a24',
 };
 
 export { colors };
