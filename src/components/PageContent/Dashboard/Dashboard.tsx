@@ -50,7 +50,7 @@ const Dashboard = () => {
   }, []);
 
   const countPoints = () => {
-    const date = new Date(currentDate.getTime());
+    const date = new Date(currentDate.getTime() + 864000000);
 
     const currentDayOfWeek = date.getDay();
 
