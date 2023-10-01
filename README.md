@@ -28,7 +28,7 @@ We also have plans to enhance the functionality by adding more achievements and 
 
 Day Master is the perfect tool for those looking to make positive changes in their lives through consistent habit keeping.
 
-If you have any further requests or questions, feel free to let me know!
+
 
 
 
