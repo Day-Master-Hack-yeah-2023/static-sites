@@ -27,7 +27,7 @@ const tabsData = (): Data[] => [
 
   {
     icon: <EmojiEventsIcon />,
-    name: 'Achivment',
+    name: 'Achivement',
     href: '/',
   },
 ];
