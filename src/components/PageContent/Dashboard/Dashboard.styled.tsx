@@ -46,6 +46,30 @@ const DashboardContainerStyled = styled(MyTasksContainerTasksStyled)<{
   pointer-events: ${({ isChecked }) => (isChecked ? 'none' : 'visible')};
 `;
 
+const DefaultDashboardSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  padding: 30px 10px;
+  box-shadow: 2px 2px 5px #bdbdbf;
+  border-radius: 10px;
+  opacity: 50%;
+`;
+
+const DefaultDashboardHeading = styled.h3`
+  font-size: 16px;
+  text-transform: uppercase;
+`;
+
+const DefaultDashboardText = styled.p`
+  font-size: 16px;
+  text-transform: uppercase;
+`;
+
 const DashboardTypographyStyled = styled(MyTasksTypographyStyled)``;
 
 export {
@@ -54,4 +78,7 @@ export {
   DashboardWrapperStyled,
   DashboardContainerStyled,
   DashboardTypographyStyled,
+  DefaultDashboardHeading,
+  DefaultDashboardSection,
+  DefaultDashboardText,
 };
