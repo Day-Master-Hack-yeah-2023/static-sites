@@ -28,9 +28,11 @@ const TabsContentContainer = styled.div`
   width: 100vw;
   min-height: calc(100vh - 96px);
   overflow-x: hidden;
+  margin-bottom: 48px;
 
   @media screen and (min-width: 1024px) {
     min-height: calc(100vh - 48px);
+    margin-bottom: 0;
   }
 `;
 
