@@ -48,6 +48,10 @@ const Dashboard = () => {
   const handleCheckboxChange = (index: number) => {
     const updatedTasksList = [...tasksList];
     updatedTasksList[index].isChecked = !updatedTasksList[index].isChecked;
+
+    const [removedTask] = updatedTasksList.splice(index, 1);
+    updatedTasksList.push(removedTask);
+
     setTasksList(updatedTasksList);
     localStorage.setItem('tasksList', JSON.stringify(updatedTasksList));
   };
