@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   DashboardContainerStyled,
   DashboardDataStyled,
@@ -7,24 +7,16 @@ import {
   DashboardWrapperStyled,
 } from './Dashboard.styled';
 import { Checkbox } from '@mui/material';
+import { DAYSOFWEEK } from './Dashboard.data';
 
 const Dashboard = () => {
-  // const tasksList = JSON.parse(localStorage.getItem('tasksList') ?? '[]');
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [tasksList, setTasksList] = useState<
+    { value: string; isChecked: boolean }[]
+  >([]);
   const currentDate = new Date();
 
-  const daysOfWeek = [
-    'Niedziela',
-    'Poniedziałek',
-    'Wtorek',
-    'Środa',
-    'Czwartek',
-    'Piątek',
-    'Sobota',
-  ];
-
   const getDayOfWeek = (date: Date) => {
-    return daysOfWeek[date.getDay()];
+    return DAYSOFWEEK[date.getDay()];
   };
 
   const getDateWithoutYear = (date: Date) => {
@@ -33,8 +25,31 @@ const Dashboard = () => {
     return `${day < 10 ? '0' : ''}${day}.${month < 10 ? '0' : ''}${month}`;
   };
 
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const now = new Date();
+      if (
+        now.getHours() === 0 &&
+        now.getMinutes() === 0 &&
+        now.getSeconds() === 0
+      ) {
+        setTasksList([]);
+      }
+    }, 1000);
+
+    const storedTasks = localStorage.getItem('tasksList');
+    if (storedTasks) {
+      setTasksList(JSON.parse(storedTasks));
+    }
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const handleCheckboxChange = (index: number) => {
+    const updatedTasksList = [...tasksList];
+    updatedTasksList[index].isChecked = !updatedTasksList[index].isChecked;
+    setTasksList(updatedTasksList);
+    localStorage.setItem('tasksList', JSON.stringify(updatedTasksList));
   };
 
   return (
@@ -44,17 +59,18 @@ const Dashboard = () => {
       </DashboardDataStyled>
 
       <DashboardWrapperStyled>
-        <DashboardContainerStyled isChecked={isChecked}>
-          <DashboardTypographyStyled>Cos</DashboardTypographyStyled>
+        {tasksList.map((task, index) => (
+          <DashboardContainerStyled key={index} isChecked={task.isChecked}>
+            <DashboardTypographyStyled>{task.value}</DashboardTypographyStyled>
 
-          <Checkbox
-            color="success"
-            sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
-            checked={isChecked}
-            disabled={isChecked}
-            onChange={handleCheckboxChange}
-          />
-        </DashboardContainerStyled>
+            <Checkbox
+              color="default"
+              sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
+              checked={task.isChecked}
+              onChange={() => handleCheckboxChange(index)}
+            />
+          </DashboardContainerStyled>
+        ))}
       </DashboardWrapperStyled>
     </DashboardStyled>
   );
