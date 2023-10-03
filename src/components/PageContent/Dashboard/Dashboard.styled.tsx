@@ -43,6 +43,7 @@ const DashboardContainerStyled = styled(MyTasksContainerTasksStyled)<{
   box-shadow: ${({ isChecked }) =>
     isChecked ? 'none' : '2px 2px 5px #BDBDBF'};
   opacity: ${({ isChecked }) => (isChecked ? '65%' : '100%')};
+  pointer-events: ${({ isChecked }) => (isChecked ? 'none' : 'visible')};
 `;
 
 const DashboardTypographyStyled = styled(MyTasksTypographyStyled)``;

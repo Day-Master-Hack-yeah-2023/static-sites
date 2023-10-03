@@ -3,7 +3,6 @@ import { StyledEngineProvider } from '@mui/material';
 import GLobalStyle from '../styles/globalStyles';
 import { ThemeProvider } from '../provider/ThemeProvider';
 import { Layout } from '../components/Layout';
-import { Dashboard } from '../components/PageContent/Dashboard';
 import { DashboardProvider } from '../components/PageContent/Dashboard/Dashboard.context';
 
 function App() {
@@ -13,9 +12,7 @@ function App() {
         <GLobalStyle />
 
         <DashboardProvider>
-          <Layout>
-            <Dashboard />
-          </Layout>
+          <Layout></Layout>
         </DashboardProvider>
       </ThemeProvider>
     </StyledEngineProvider>
